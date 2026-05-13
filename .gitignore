@@ -1,0 +1,16 @@
+# Dataset
+data/cell_images/
+data/*.npy
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# TF
+*.h5
+*.keras
