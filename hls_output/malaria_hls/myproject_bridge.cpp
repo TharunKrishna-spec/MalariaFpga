@@ -51,33 +51,33 @@ void collect_trace_output(struct trace_data *c_trace_outputs) {
 
 // Wrapper of top level function for Python bridge
 void myproject_float(
-    float *input_layer_1,
-    float *layer16_out
+    float *input_layer,
+    float *layer15_out
 ) {
 
-    input_t input_layer_1_ap[64*64*3];
-    nnet::convert_data<float, input_t, 64*64*3>(input_layer_1, input_layer_1_ap);
+    input_t input_layer_ap[64*64*3];
+    nnet::convert_data<float, input_t, 64*64*3>(input_layer, input_layer_ap);
 
-    result_t layer16_out_ap[1];
+    result_t layer15_out_ap[1];
 
-    myproject(input_layer_1_ap,layer16_out_ap);
+    myproject(input_layer_ap,layer15_out_ap);
 
-    nnet::convert_data<result_t, float, 1>(layer16_out_ap, layer16_out);
+    nnet::convert_data<result_t, float, 1>(layer15_out_ap, layer15_out);
 }
 
 void myproject_double(
-    double *input_layer_1,
-    double *layer16_out
+    double *input_layer,
+    double *layer15_out
 ) {
 
-    input_t input_layer_1_ap[64*64*3];
-    nnet::convert_data<double, input_t, 64*64*3>(input_layer_1, input_layer_1_ap);
+    input_t input_layer_ap[64*64*3];
+    nnet::convert_data<double, input_t, 64*64*3>(input_layer, input_layer_ap);
 
-    result_t layer16_out_ap[1];
+    result_t layer15_out_ap[1];
 
-    myproject(input_layer_1_ap,layer16_out_ap);
+    myproject(input_layer_ap,layer15_out_ap);
 
-    nnet::convert_data<result_t, double, 1>(layer16_out_ap, layer16_out);
+    nnet::convert_data<result_t, double, 1>(layer15_out_ap, layer15_out);
 }
 }
 

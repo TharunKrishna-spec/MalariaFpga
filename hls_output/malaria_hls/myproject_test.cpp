@@ -59,12 +59,12 @@ int main(int argc, char **argv) {
             }
 
             // hls-fpga-machine-learning insert data
-      input_t input_layer_1[64*64*3];
-      nnet::copy_data<float, input_t, 0, 64*64*3>(in, input_layer_1);
-      result_t layer16_out[1];
+      input_t input_layer[64*64*3];
+      nnet::copy_data<float, input_t, 0, 64*64*3>(in, input_layer);
+      result_t layer15_out[1];
 
             // hls-fpga-machine-learning insert top-level-function
-            myproject(input_layer_1,layer16_out);
+            myproject(input_layer,layer15_out);
 
             if (e % CHECKPOINT == 0) {
                 std::cout << "Predictions" << std::endl;
@@ -75,12 +75,12 @@ int main(int argc, char **argv) {
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
                 // hls-fpga-machine-learning insert quantized
-                nnet::print_result<result_t, 1>(layer16_out, std::cout, true);
+                nnet::print_result<result_t, 1>(layer15_out, std::cout, true);
             }
             e++;
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<result_t, 1>(layer16_out, fout);
+            nnet::print_result<result_t, 1>(layer15_out, fout);
         }
         fin.close();
         fpr.close();
@@ -89,18 +89,18 @@ int main(int argc, char **argv) {
         const unsigned NUM_TEST_SAMPLES = 5;
         for (unsigned i = 0; i < NUM_TEST_SAMPLES; i++) {
             // hls-fpga-machine-learning insert zero
-            input_t input_layer_1[64*64*3];
-            nnet::fill_zero<input_t, 64*64*3>(input_layer_1);
-            result_t layer16_out[1];
+            input_t input_layer[64*64*3];
+            nnet::fill_zero<input_t, 64*64*3>(input_layer);
+            result_t layer15_out[1];
 
             // hls-fpga-machine-learning insert top-level-function
-            myproject(input_layer_1,layer16_out);
+            myproject(input_layer,layer15_out);
 
             // hls-fpga-machine-learning insert output
-            nnet::print_result<result_t, 1>(layer16_out, std::cout, true);
+            nnet::print_result<result_t, 1>(layer15_out, std::cout, true);
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<result_t, 1>(layer16_out, fout);
+            nnet::print_result<result_t, 1>(layer15_out, fout);
         }
     }
 

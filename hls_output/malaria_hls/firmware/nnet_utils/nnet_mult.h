@@ -4,7 +4,7 @@
 #include "hls_stream.h"
 #include "nnet_common.h"
 #include "nnet_helpers.h"
-//#include <iostream>  // HLS_COMPAT
+#include <iostream>
 #include <math.h>
 
 namespace nnet {

@@ -1,0 +1,56 @@
+INFO: [HLS 200-10] Running 'D:/Xilinx_2022.2/Vitis_HLS/2022.2/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user 'vlsi' on host 'vlsi-1' (Windows NT_amd64 version 6.2) on Thu May 14 13:22:11 +0530 2026
+INFO: [HLS 200-10] In directory 'D:/Malaria/MalariaFpga/hls_output/malaria_hls'
+Sourcing Tcl script 'D:/Malaria/MalariaFpga/hls_output/malaria_hls/myproject_prj/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source D:/Malaria/MalariaFpga/hls_output/malaria_hls/myproject_prj/solution1/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project myproject_prj 
+INFO: [HLS 200-10] Opening project 'D:/Malaria/MalariaFpga/hls_output/malaria_hls/myproject_prj'.
+INFO: [HLS 200-1510] Running: set_top myproject 
+INFO: [HLS 200-1510] Running: add_files firmware/myproject.cpp -cflags -std=c++0x 
+INFO: [HLS 200-10] Adding design file 'firmware/myproject.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb_data -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'tb_data' to the project
+INFO: [HLS 200-1510] Running: add_files -tb firmware/weights -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'firmware/weights' to the project
+INFO: [HLS 200-1510] Running: add_files -tb myproject_test.cpp -cflags -std=c++0x -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'myproject_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'D:/Malaria/MalariaFpga/hls_output/malaria_hls/myproject_prj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.625ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_schedule -enable_dsp_full_reg=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [HLS 200-1510] Running: config_schedule -enable_dsp_full_reg=0 
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 12.5% 
+INFO: [HLS 200-1510] Running: source ./myproject_prj/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name myproject myproject 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 59436
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.06 seconds; current allocated memory: 688.812 MB.
+INFO: [HLS 200-10] Analyzing design file 'firmware/myproject.cpp' ... 
+WARNING: [HLS 207-5555] unexpected pragma argument 'softmax', expects function/operation (firmware/nnet_utils/nnet_activation.h:402:36)
+WARNING: [HLS 207-5527] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:33:9)
+WARNING: [HLS 207-5527] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:107:9)
+WARNING: [HLS 207-5527] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:189:9)
+WARNING: [HLS 207-5528] 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead (firmware/nnet_utils/nnet_conv2d.h:48:26)
+WARNING: [HLS 207-5528] 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead (firmware/nnet_utils/nnet_conv2d.h:66:26)
+WARNING: [HLS 207-5555] unexpected pragma argument 'compute_output_buffer_1d', expects function/operation (firmware/nnet_utils/nnet_conv2d_stream.h:80:34)
+WARNING: [HLS 207-5555] unexpected pragma argument 'compute_output_buffer_2d', expects function/operation (firmware/nnet_utils/nnet_conv2d_stream.h:81:34)
+WARNING: [HLS 207-5555] unexpected pragma argument 'pool_op', expects function/operation (firmware/nnet_utils/nnet_pooling.h:298:34)
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 218.477 seconds; current allocated memory: 2.836 MB.
+Compilation of the preprocessed source 'myproject' failed
+    while executing
+"source D:/Malaria/MalariaFpga/hls_output/malaria_hls/myproject_prj/solution1/csynth.tcl"
+    invoked from within
+"hls::main D:/Malaria/MalariaFpga/hls_output/malaria_hls/myproject_prj/solution1/csynth.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$newargs"
+    (procedure "hls_proc" line 16)
+    invoked from within
+"hls_proc [info nameofexecutable] $argv"
+INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 0 seconds. Total elapsed time: 234.489 seconds; peak allocated memory: 691.629 MB.

@@ -10,8 +10,8 @@
 
 // Prototype of top level function for C-synthesis
 void myproject(
-    input_t input_layer_1[64*64*3],
-    result_t layer16_out[1]
+    input_t input_layer[64*64*3],
+    result_t layer15_out[1]
 );
 
 // hls-fpga-machine-learning insert emulator-defines

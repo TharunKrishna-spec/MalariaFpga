@@ -2,7 +2,7 @@
 #define NNET_POOLING_H_
 
 #include "nnet_helpers.h"
-//#include <iostream>  // HLS_COMPAT
+#include <iostream>
 
 namespace nnet {
 

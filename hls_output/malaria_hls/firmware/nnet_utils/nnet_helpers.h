@@ -2,14 +2,14 @@
 #define NNET_HELPERS_H
 
 #include "hls_stream.h"
-// #include <algorithm>  // removed for Vivado HLS 2019.1 Clang 3.1 compatibility
-//#include <fstream>  // HLS_COMPAT
-//#include <iostream>  // HLS_COMPAT
-//#include <map>  // HLS_COMPAT
+#include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <map>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <vector>  // HLS_COMPAT
+#include <vector>
 
 namespace nnet {
 
@@ -249,17 +249,10 @@ template <class data_T> void save_layer_output(hls::stream<data_T> &data, const 
 
 #endif
 
-template <class src_T, class dst_T, size_t OFFSET, size_t SIZE>
-void copy_data(std::vector<src_T> src, dst_T dst[SIZE]) {
-
+template <class src_T, class dst_T, size_t OFFSET, size_t SIZE> void copy_data(std::vector<src_T> src, dst_T dst[SIZE]) {
     typename std::vector<src_T>::const_iterator in_begin = src.cbegin() + OFFSET;
     typename std::vector<src_T>::const_iterator in_end = in_begin + SIZE;
-
-    int i = 0;
-
-    for (; in_begin != in_end; ++i, ++in_begin) {
-        dst[i] = *in_begin;
-    }
+    std::copy(in_begin, in_end, dst);
 }
 
 template <class src_T, class dst_T, size_t OFFSET, size_t SIZE>
@@ -308,13 +301,7 @@ template <class res_T, size_t SIZE> void print_result(hls::stream<res_T> &result
     out << std::endl;
 }
 
-template <class data_T, size_t SIZE>
-void fill_zero(data_T data[SIZE]) {
-
-    for (size_t i = 0; i < SIZE; i++) {
-        data[i] = 0;
-    }
-}
+template <class data_T, size_t SIZE> void fill_zero(data_T data[SIZE]) { std::fill_n(data, SIZE, 0.); }
 
 template <class data_T, size_t SIZE> void fill_zero(hls::stream<data_T> &data) {
     for (int i = 0; i < SIZE / data_T::size; i++) {

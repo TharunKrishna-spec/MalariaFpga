@@ -3,7 +3,7 @@
 
 #include "hls_stream.h"
 #include "nnet_transpose.h"
-//#include <type_traits>  // HLS_COMPAT
+#include <type_traits>
 
 namespace nnet {
 
