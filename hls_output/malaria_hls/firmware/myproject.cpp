@@ -1,4 +1,3 @@
-#include <iostream>
 
 #include "myproject.h"
 #include "parameters.h"
